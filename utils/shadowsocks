@@ -15,9 +15,9 @@
 
 name=shadowsocks
 PY=/usr/bin/python
-SS=~/shadowsocksr/shadowsocks/server.py
+SS=/root/shadowsocksr/shadowsocks/server.py
 SSPY=server.py
-conf=~/shadowsocksr/user-config.json
+conf=/root/shadowsocksr/user-config.json
 
 start(){
     $PY $SS -c $conf -d start
