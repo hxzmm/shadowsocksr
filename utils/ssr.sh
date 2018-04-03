@@ -1,3 +1,6 @@
+if [ ! -x python ]; then
+    apt install python
+fi
 apt-get install git
 git clone https://github.com/hxzmm/shadowsocksr.git
 cd ./shadowsocksr
