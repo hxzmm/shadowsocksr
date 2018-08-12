@@ -1,7 +1,7 @@
 {
     "server": "0.0.0.0",
     "server_ipv6": "::",
-    "server_port": 8833,
+    "server_port": 10000,
     "local_address": "127.0.0.1",
     "local_port": 1080,
 
@@ -19,7 +19,7 @@
     "timeout": 120,
     "udp_timeout": 60,
     "dns_ipv6": false,
-    "connect_verbose_info": 0,
+    "connect_verbose_info": 1,
     "redirect": "",
     "fast_open": false
 }
