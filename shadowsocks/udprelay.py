@@ -448,6 +448,7 @@ class UDPRelay(object):
                 client, client_uid = client_pair
             self._cache.clear(self._udp_cache_size)
             self._cache_dns_client.clear(16)
+            common.connect_log('UDP data from %s:%d', common.to_str(r_addr[0]), r_addr[1])
 
             if self._is_local:
                 ref_iv = [encrypt.encrypt_new_iv(self._method)]
@@ -491,6 +492,8 @@ class UDPRelay(object):
         client_addr = self._client_fd_to_server_addr.get(sock.fileno())
         client_uid = None
         if client_addr:
+            addr = client_addr[0]
+            common.connect_log('UDP data to %s:%d', common.to_str(addr[0]), addr[1])
             key = client_key(client_addr[0], client_addr[1])
             client_pair = self._cache.get(key, None)
             client_dns_pair = self._cache_dns_client.get(key, None)
