@@ -266,7 +266,7 @@ def get_config(is_local):
             config['black_hostname_list'] = []
         try:
             config['forbidden_ip'] = \
-                IPNetwork(config.get('forbidden_ip', '127.0.0.0/8,::1/128'))
+                IPNetwork(config.get('forbidden_ip', '127.0.0.1/32,::1/128'))
         except Exception as e:
             logging.error(e)
             sys.exit(2)
