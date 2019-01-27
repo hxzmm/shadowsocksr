@@ -471,6 +471,7 @@ class UDPRelay(object):
         try:
             client.sendto(data, (server_addr, server_port))
             self.add_transfer_u(client_uid, len(data))
+            common.connect_log('UDP data remote to %s:%d', common.to_str(server_addr), server_port)
             if client_pair is None: # new request
                 addr, port = client.getsockname()[:2]
                 common.connect_log('UDP data to %s(%s):%d from %s:%d by user %d' %
@@ -485,6 +486,7 @@ class UDPRelay(object):
 
     def _handle_client(self, sock):
         data, r_addr = sock.recvfrom(BUF_SIZE)
+        common.connect_log('UDP data remote from %s:%d', common.to_str(r_addr[0]), r_addr[1])
         if not data:
             logging.debug('UDP handle_client: data is empty')
             return
